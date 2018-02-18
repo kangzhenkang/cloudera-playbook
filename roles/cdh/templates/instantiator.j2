@@ -2,7 +2,7 @@
   "clusterName" : "{{ cluster_display_name }}",
   "hosts" : [
     {% set host_joiner = joiner(",") %}
-    {% for host in groups['cdh_servers'] %}
+    {% for host in groups['cdh_servers1'] %}
     {% if 'host_template' in hostvars[host] %}
     {{ host_joiner() }}
     {

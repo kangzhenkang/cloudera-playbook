@@ -59,5 +59,6 @@
   hosts: scm_server
   roles:
     - cdh
+  strategy: debug
   tags: cluster_template
 

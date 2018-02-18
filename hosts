@@ -1,13 +1,13 @@
 # Note for AWS: 'Public DNS' name is too long for ansible_host, use 'Public IP' (https://github.com/ansible/ansible/issues/11536)
 
 [scm_server]
-<host>        license_file=/path/to/cloudera_license.txt
+master        license_file=/path/to/cloudera_license.txt
 
 [db_server]
-<host>
+master
 
 [krb5_server]
-<host>        default_realm=CLOUDERA.COM
+master        default_realm=CLOUDERA.COM
 
 [utility_servers:children]
 scm_server
@@ -18,14 +18,12 @@ krb5_server
 <host>        host_template=HostTemplate-Gateway role_ref_names=HDFS-HTTPFS-1
 
 [master_servers]
-<host>        host_template=HostTemplate-Master1
-<host>        host_template=HostTemplate-Master2
-<host>        host_template=HostTemplate-Master3
+master        host_template=HostTemplate-Master1
 
 [worker_servers]
-<host>
-<host>
-<host>
+slave01
+slave02
+slave03
 
 [worker_servers:vars]
 host_template=HostTemplate-Workers
